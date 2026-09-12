@@ -10,7 +10,9 @@ export default defineConfig({
     viteTsConfigPaths({
       projects: ['./tsconfig.json'],
     }),
-    tanstackStart(),
+    tanstackStart({
+      srcDirectory: 'app',
+    }),
     nitro(),
     viteReact(),
   ],
