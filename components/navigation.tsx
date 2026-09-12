@@ -6,23 +6,24 @@ import { Button } from './ui/button'
 import { cn } from '@/lib/utils'
 
 const productLinks = [
-  { label: "Vue d'ensemble", href: '#' },
-  { label: 'Visibilité IA', href: '#' },
-  { label: 'Questions et mesures', href: '#' },
-  { label: 'Preuves et opportunités', href: '#' },
-  { label: 'Historique du site', href: '#' },
+  { label: "Vue d'ensemble", href: '/produit/vue-ensemble' },
+  { label: 'Visibilité IA', href: '/produit/visibilite-ia' },
+  { label: 'Questions et mesures', href: '/produit/questions-mesures' },
+  { label: 'Preuves et opportunités', href: '/produit/preuves-opportunites' },
+  { label: 'Historique du site', href: '/produit/historique' },
 ]
 
 const resourcesLinks = [
-  { label: 'Blog', href: '#' },
-  { label: 'Guides', href: '#' },
-  { label: 'Études', href: '#' },
-  { label: 'Glossaire', href: '#' },
+  { label: 'Blog', href: '/ressources/blog' },
+  { label: 'Guides', href: '/ressources/guides' },
+  { label: 'Études', href: '/ressources/etudes' },
+  { label: 'Glossaire', href: '/ressources/glossaire' },
 ]
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,7 +91,7 @@ export function Navigation() {
             </a>
 
             {/* CTA Button */}
-            <Button variant="primary" size="sm">
+            <Button href="/login" variant="primary" size="sm">
               Commencer
             </Button>
           </div>
@@ -98,7 +99,9 @@ export function Navigation() {
           {/* Mobile Menu Toggle */}
           <button
             className="md:hidden text-text-primary"
-            aria-label="Toggle menu"
+            aria-label={isMobileMenuOpen ? 'Fermer le menu' : 'Ouvrir le menu'}
+            aria-expanded={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen((open) => !open)}
           >
             <svg
               className="w-6 h-6"
@@ -106,16 +109,89 @@ export function Navigation() {
               stroke="currentColor"
               viewBox="0 0 24 24"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
+              {isMobileMenuOpen ? (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              ) : (
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              )}
             </svg>
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Panel */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: 'auto' }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+            className="md:hidden overflow-hidden bg-background border-t border-border"
+          >
+            <div className="max-w-[1280px] mx-auto px-6 py-6 space-y-6">
+              <div className="space-y-3">
+                <p className="text-caption text-text-muted uppercase tracking-wide">Produit</p>
+                {productLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="block text-body text-text-secondary hover:text-text-primary transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="space-y-3">
+                <p className="text-caption text-text-muted uppercase tracking-wide">Ressources</p>
+                {resourcesLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    className="block text-body text-text-secondary hover:text-text-primary transition-colors"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+
+              <div className="space-y-3 pt-3 border-t border-border">
+                <a
+                  href="#pricing"
+                  className="block text-body text-text-secondary hover:text-text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Tarifs
+                </a>
+                <a
+                  href="/login"
+                  className="block text-body text-text-secondary hover:text-text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Connexion
+                </a>
+              </div>
+
+              <Button href="/login" variant="primary" size="sm" className="w-full">
+                Commencer
+              </Button>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   )
 }
