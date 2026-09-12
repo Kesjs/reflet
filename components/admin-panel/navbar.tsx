@@ -56,16 +56,16 @@ export function Navbar({ title = 'Vue Cockpit' }: NavbarProps) {
             </span>
           </div>
 
-          {/* Action : Lancer un audit */}
+          {/* Action : Lancer un audit (neutre pour préserver le CTA unique en jaune soufre) */}
           <button
             type="button"
             onClick={handleMeasure}
             disabled={isMeasuring}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-[#ffffff] hover:bg-[#ffffff]/90 text-[#0a0a0a] text-xs font-semibold transition-all shadow-2xs cursor-pointer disabled:opacity-75"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-[6px] bg-[#141414] hover:bg-[#1e1e1e] border border-[#313131] text-[#ffffff] text-xs font-semibold transition-all shadow-2xs cursor-pointer disabled:opacity-75"
           >
-            <Sparkles className="size-3.5 text-[#0a0a0a]" />
+            <Sparkles className="size-3.5 text-[#f2d94e]" />
             <span className="hidden sm:inline">
-              {isMeasuring ? 'Simulation...' : 'Nouvel audit'}
+              {isMeasuring ? 'Mesure en cours...' : 'Nouvel audit'}
             </span>
           </button>
 

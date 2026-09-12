@@ -1,13 +1,11 @@
 import {
-  LayoutGrid,
-  Sparkles,
-  Target,
+  LayoutDashboard,
+  TrendingUp,
   Users,
-  Activity,
+  Lightbulb,
+  History,
   Settings,
   LucideIcon,
-  ShieldCheck,
-  Globe,
 } from 'lucide-react'
 
 export type Submenu = {
@@ -36,65 +34,49 @@ export function getMenuList(pathname: string): Group[] {
       menus: [
         {
           href: '/dashboard',
-          label: 'Vue Cockpit',
-          icon: LayoutGrid,
+          label: 'Accueil',
+          icon: LayoutDashboard,
           active: pathname === '/dashboard' || pathname === '/dashboard/',
           submenus: [],
         },
-      ],
-    },
-    {
-      groupLabel: 'Moteurs & Recommandations',
-      menus: [
         {
-          href: '/dashboard',
-          label: 'Moteurs IA',
-          icon: Sparkles,
-          submenus: [
-            {
-              href: '/dashboard',
-              label: 'ChatGPT 4o',
-              active: true,
-            },
-            {
-              href: '/dashboard',
-              label: 'Perplexity AI',
-              active: false,
-            },
-            {
-              href: '/dashboard',
-              label: 'Claude 3.7',
-              active: false,
-            },
-          ],
-        },
-        {
-          href: '/dashboard',
-          label: '30 Questions Cibles',
-          icon: Target,
+          href: '/dashboard/performance',
+          label: 'Performance',
+          icon: TrendingUp,
+          active: pathname.startsWith('/dashboard/performance'),
           submenus: [],
         },
         {
-          href: '/dashboard',
-          label: 'Concurrents & Part de voix',
+          href: '/dashboard/concurrents',
+          label: 'Concurrents',
           icon: Users,
+          active: pathname.startsWith('/dashboard/concurrents'),
+          submenus: [],
+        },
+        {
+          href: '/dashboard/opportunites',
+          label: 'Opportunités',
+          icon: Lightbulb,
+          active: pathname.startsWith('/dashboard/opportunites'),
+          submenus: [],
+        },
+        {
+          href: '/dashboard/historique',
+          label: 'Historique',
+          icon: History,
+          active: pathname.startsWith('/dashboard/historique'),
           submenus: [],
         },
       ],
     },
     {
-      groupLabel: 'Surveillance & Paramètres',
+      groupLabel: '',
       menus: [
         {
-          href: '/dashboard',
-          label: 'Télémétrie & Sources',
-          icon: Activity,
-          submenus: [],
-        },
-        {
-          href: '/dashboard',
-          label: 'Domaine & Clés API',
+          href: '/dashboard/parametres',
+          label: 'Paramètres',
           icon: Settings,
+          active: pathname.startsWith('/dashboard/parametres'),
           submenus: [],
         },
       ],
