@@ -106,12 +106,12 @@ export function Pricing() {
                 ))}
               </ul>
               
-              <Button size="lg" className="w-full">
+              <Button href="/login" size="lg" className="w-full">
                 Commencer
               </Button>
               
               <p className="text-center text-sm text-text-muted">
-                Aucune carte bancaire requise pour l'essai
+                Essai 7 jours à 1,50 € · carte bancaire requise
               </p>
             </CardContent>
           </Card>

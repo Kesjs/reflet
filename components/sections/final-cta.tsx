@@ -22,7 +22,7 @@ export function FinalCTA() {
         </p>
         
         <div className="pt-4">
-          <Button size="lg" className="group">
+          <Button href="/login" size="lg" className="group">
             Analyser mon site
             <ArrowRightIcon className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
