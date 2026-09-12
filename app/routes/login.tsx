@@ -56,7 +56,7 @@ function LoginPage() {
       await new Promise((r) => setTimeout(r, 800)) // simulation
       setOtpSuccess(true)
       toast.success('Connexion réussie !')
-      setTimeout(() => navigate({ to: '/' }), 800)
+      setTimeout(() => navigate({ to: '/dashboard' }), 800)
     } catch {
       setOtpError(true)
       setTimeout(() => setOtpError(false), 1000)
@@ -73,7 +73,7 @@ function LoginPage() {
       // TODO: await supabase.auth.signInWithPassword({ email, password })
       await new Promise((r) => setTimeout(r, 800))
       toast.success('Connexion réussie !')
-      navigate({ to: '/' })
+      navigate({ to: '/dashboard' })
     } catch {
       toast.error('Email ou mot de passe incorrect')
     } finally {

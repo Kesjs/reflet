@@ -123,6 +123,12 @@ export function Navigation() {
               Tarifs
             </a>
             <a
+              href="/dashboard"
+              className="text-body text-text-secondary hover:text-brand-accent transition-colors font-medium"
+            >
+              Cockpit
+            </a>
+            <a
               href="/login"
               className="text-body text-text-secondary hover:text-text-primary transition-colors"
             >
@@ -204,6 +210,13 @@ export function Navigation() {
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   Tarifs
+                </a>
+                <a
+                  href="/dashboard"
+                  className="block text-body text-brand-accent font-medium transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Cockpit
                 </a>
                 <a
                   href="/login"
