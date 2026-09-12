@@ -78,3 +78,20 @@
     scroll-behavior: smooth;
   }
 }
+
+@layer utilities {
+  .bg-dashed {
+    background-image: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.04) 12.5%,
+      transparent 12.5%,
+      transparent 50%,
+      rgba(255, 255, 255, 0.04) 50%,
+      rgba(255, 255, 255, 0.04) 62.5%,
+      transparent 62.5%,
+      transparent 100%
+    );
+    background-size: 0.35rem 0.35rem;
+  }
+}
+

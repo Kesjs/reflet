@@ -41,3 +41,7 @@ routeTree.gen.ts
 
 # MCP Config (contains API key)
 .mcp.json
+
+# Build cache
+app.config.timestamp_*.js
+
