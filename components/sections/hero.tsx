@@ -1,83 +1,74 @@
+import React from 'react'
 import { motion } from 'framer-motion'
 import {
-  ArrowRightIcon,
-  ArrowUpRightIcon,
-  CheckCircleIcon,
-  SparklesIcon,
-} from '@heroicons/react/24/outline'
-import { Button } from '@/components/ui/button'
-import { SonarGrid } from '@/components/ui/sonar-grid'
+  ArrowRight,
+  ArrowUpRight,
+  CheckCircle2,
+  Sparkles,
+  Terminal,
+  Activity,
+  Cpu,
+} from 'lucide-react'
+import { BlueprintGrid } from '@/components/ui/blueprint-grid'
 
 export function Hero() {
   return (
-    <SonarGrid
-      color="#c9ab1e"
-      baseOpacity={0.16}
-      spacing={30}
-      speed={220}
-      pingEvery={3.5}
-      className="relative w-full overflow-hidden bg-dashed px-4 pt-32 pb-20 sm:px-8 sm:pt-36 sm:pb-28"
-    >
-      {/* Halo de dégradé en bas à droite — Couleur Reflet (Jaune soufre / Ambre) */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: 'easeOut' }}
-        className="pointer-events-none absolute right-0 bottom-0 -z-10 translate-x-1/3 translate-y-1/3 w-[680px] h-[680px] rounded-full blur-[140px] select-none"
-        style={{
-          background:
-            'radial-gradient(circle, rgba(201, 171, 30, 0.32) 0%, rgba(242, 217, 78, 0.16) 40%, rgba(176, 107, 28, 0.08) 65%, transparent 80%)',
-        }}
-        aria-hidden="true"
-      />
-
-
-      {/* Halo subtil supérieur pour le contraste */}
-      <div
-        className="pointer-events-none absolute top-12 left-1/2 -z-10 -translate-x-1/2 w-[520px] h-[260px] rounded-full blur-[120px] opacity-20"
-        style={{
-          background: 'radial-gradient(ellipse, rgba(242, 217, 78, 0.25) 0%, transparent 70%)',
-        }}
-        aria-hidden="true"
-      />
-
+    <BlueprintGrid className="px-4 pt-32 pb-24 sm:px-8 sm:pt-36 sm:pb-32">
       <div className="mx-auto max-w-6xl flex flex-col items-center justify-center text-center">
-        {/* Badge d'annonce épuré — sans point clignotant */}
+        {/* ─── 1. BADGE TECHNIQUE DOVETAIL (JETBRAINS MONO + BALISE INDIGO) ─── */}
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
+          transition={{ duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
         >
           <a
             href="/produit/visibilite-ia"
-            className="group inline-flex items-center gap-2 rounded-full border border-border-subtle bg-surface/80 px-4 py-1.5 text-xs text-text-secondary backdrop-blur-md transition-colors hover:border-border-hover hover:bg-surface hover:text-text-primary"
+            className="group inline-flex items-center gap-2.5 rounded-full border border-[#313131] bg-[#141414]/90 px-3.5 py-1.5 text-[12px] font-mono tracking-wide text-[#a7a7a7] backdrop-blur-md transition-all hover:border-[#6798ff]/50 hover:bg-[#1e1e1e] hover:text-[#ffffff] shadow-2xs"
           >
+            {/* Balise lumineuse Soft Indigo (#6798ff) */}
+            <span className="relative flex size-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#6798ff] opacity-75" />
+              <span className="relative inline-flex rounded-full size-2 bg-[#6798ff]" />
+            </span>
             <span>L'audit de référence pour les moteurs de réponse IA</span>
-            <ArrowUpRightIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-rotate-12 group-hover:text-brand-accent" />
+            <ArrowUpRight className="size-3.5 text-[#7c7c7c] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#6798ff]" />
           </a>
         </motion.div>
 
-        {/* Titre principal strictement sur 2 lignes */}
+        {/* ─── 2. TITRE DISPLAY VERROUILLÉ STRICTEMENT SUR 2 LIGNES ─── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-6 max-w-6xl"
+          transition={{ duration: 0.5, delay: 0.08, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-6 max-w-5xl"
         >
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-text-primary leading-[1.2]">
-            <span className="block md:whitespace-nowrap">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.35rem] font-medium tracking-[-0.035em] text-[#ffffff] leading-[1.18]">
+            <span className="block whitespace-normal md:whitespace-nowrap">
               Mesurez la visibilité de votre marque
             </span>
-            <span className="block mt-1 sm:mt-2 md:whitespace-nowrap">
+
+            <span className="block mt-1 sm:mt-2 whitespace-normal md:whitespace-nowrap">
               dans les recommandations de{' '}
-              <span className="relative inline-flex items-center align-baseline px-2.5 sm:px-3 py-0.5 rounded-lg border border-brand/40 bg-surface-elevated/90 shadow-inner overflow-hidden group/badge">
-                {/* Rayures obliques stylisées */}
+              {/* ─── L'ÉTINCELLE SOFT INDIGO CENTRALE (#6798ff) SUR [CHATGPT] ─── */}
+              <span className="relative inline-flex items-center align-baseline px-3 sm:px-3.5 py-0.5 rounded-[8px] border border-[#6798ff]/50 bg-[#6798ff]/10 text-[#6798ff] shadow-[0_0_28px_rgba(103,152,255,0.32)] transition-all hover:shadow-[0_0_36px_rgba(103,152,255,0.48)] hover:border-[#6798ff]/70 group/badge select-none">
+                {/* Micro-mires d'angle blueprint */}
                 <span
                   aria-hidden="true"
-                  className="absolute inset-0 opacity-25 bg-[repeating-linear-gradient(45deg,#c9ab1e,#c9ab1e_2px,transparent_2px,transparent_8px)] group-hover/badge:opacity-40 transition-opacity"
-                />
-                <span className="relative font-bold text-brand-accent tracking-wide">
-                  ChatGPT
+                  className="pointer-events-none absolute -top-1 -left-1 text-[8px] font-mono text-[#6798ff]/60 leading-none"
+                >
+                  +
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute -bottom-1 -right-1 text-[8px] font-mono text-[#6798ff]/60 leading-none"
+                >
+                  +
+                </span>
+
+                {/* Étincelle animée */}
+                <span className="relative font-semibold tracking-normal text-[#6798ff] flex items-center gap-1.5">
+                  <span className="text-xs text-[#6798ff] animate-pulse">✦</span>
+                  <span>ChatGPT</span>
                 </span>
               </span>
               .
@@ -85,184 +76,186 @@ export function Hero() {
           </h1>
         </motion.div>
 
-        {/* Sous-titre harmonisé sans répétition */}
+        {/* ─── 3. SOUS-TITRE HARMONISÉ EN GRIS ASH (#A7A7A7) ─── */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-base sm:text-lg text-text-secondary md:text-xl leading-relaxed tracking-tight"
+          transition={{ duration: 0.5, delay: 0.16, ease: [0.16, 1, 0.3, 1] }}
+          className="mt-6 max-w-2xl text-base sm:text-lg text-[#a7a7a7] leading-[1.6] tracking-[-0.015em]"
         >
           Reflet simule les questions réelles de vos prospects, analyse les réponses
           générées et vous révèle qui prend votre place pour vous hisser en première position.
         </motion.p>
 
-        {/* Double boutons d'action (CTAs) */}
+        {/* ─── 4. DOUBLES BOUTONS D'ACTION DOVETAIL (RAYON 8PX STRICT) ─── */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.24, ease: [0.16, 1, 0.3, 1] }}
           className="mt-8 flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto justify-center"
         >
-          <Button
+          {/* Bouton Primaire : Blanc pur (#ffffff Bone), texte noir, bord 8px */}
+          <a
             href="/login"
-            size="lg"
-            className="group w-full sm:w-auto gap-2 bg-brand text-on-brand font-medium hover:bg-brand-hover shadow-lg shadow-brand/15"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[8px] bg-[#ffffff] hover:bg-[#ffffff]/90 text-[#0a0a0a] text-sm font-semibold transition-all shadow-sm hover:shadow-md cursor-pointer"
           >
             <span>Analyser mon site</span>
-            <ArrowRightIcon className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-          <Button
+            <ArrowRight className="size-4 transition-transform duration-200 group-hover:translate-x-1" />
+          </a>
+
+          {/* Bouton Secondaire : Fond Graphite (#141414), bord Slate Edge (#313131) */}
+          <a
             href="/produit/vue-ensemble"
-            variant="secondary"
-            size="lg"
-            className="w-full sm:w-auto gap-2 border-border bg-surface/70 hover:bg-surface text-text-primary backdrop-blur-sm"
+            className="group w-full sm:w-auto inline-flex items-center justify-center gap-2 h-12 px-6 rounded-[8px] bg-[#141414] hover:bg-[#1e1e1e] border border-[#313131] hover:border-[#454545] text-[#ffffff] text-sm font-medium transition-all cursor-pointer"
           >
             <span>Voir le produit</span>
-            <ArrowUpRightIcon className="h-4 w-4 transition-transform group-hover:-rotate-12" />
-          </Button>
+            <ArrowUpRight className="size-4 text-[#7c7c7c] transition-transform duration-200 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-[#ffffff]" />
+          </a>
         </motion.div>
 
-        {/* Éléments de réassurance */}
-        <motion.p
+        {/* ─── 5. BANDEAU DE RÉASSURANCE DISCRET ─── */}
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="mt-4 flex items-center justify-center gap-2 text-xs sm:text-sm text-text-muted"
+          transition={{ duration: 0.5, delay: 0.32 }}
+          className="mt-5 flex items-center justify-center gap-2 text-xs text-[#7c7c7c] font-mono"
         >
-          <CheckCircleIcon className="h-4 w-4 text-brand" />
-          <span>1 site inclus · jusqu'à 30 questions ciblées · mesure continue sans configuration</span>
-        </motion.p>
+          <CheckCircle2 className="size-3.5 text-[#6798ff]" />
+          <span>1 site inclus · 30 questions ciblées · audit continu sans configuration</span>
+        </motion.div>
 
-        {/* Mockup ChatGPT immersif — Nouvelle Dimension */}
+        {/* ─── 6. CENTREPIECE MOCKUP : CENTRE DE CONTRÔLE BLUEPRINT DOVETAIL ─── */}
         <motion.div
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 36 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-          className="relative mt-12 w-full max-w-4xl"
+          transition={{ duration: 0.7, delay: 0.38, ease: [0.16, 1, 0.3, 1] }}
+          className="relative mt-14 w-full max-w-4xl"
         >
-          {/* Lueur dorée d'accentuation sous le mockup */}
+          {/* Lueur Soft Indigo feutrée derrière le conteneur */}
           <div
-            className="pointer-events-none absolute -inset-1 rounded-2xl opacity-35 blur-2xl -z-10"
+            className="pointer-events-none absolute -inset-2 rounded-2xl opacity-25 blur-3xl -z-10"
             style={{
               background:
-                'radial-gradient(circle at 50% 0%, rgba(201, 171, 30, 0.3) 0%, transparent 70%)',
+                'radial-gradient(circle at 50% 0%, rgba(103, 152, 255, 0.35) 0%, transparent 70%)',
             }}
             aria-hidden="true"
           />
 
-          <div className="overflow-hidden rounded-2xl border border-border bg-surface/90 backdrop-blur-2xl shadow-2xl text-left">
-            {/* Barre supérieure style ChatGPT Desktop / Web */}
-            <div className="flex items-center justify-between border-b border-border/80 px-4 py-3 bg-surface-elevated/70">
+          {/* Boîtier principal : Graphite (#141414), bord Slate Edge (#313131), rayon 8px */}
+          <div className="overflow-hidden rounded-[8px] border border-[#313131] bg-[#141414] shadow-2xl text-left">
+            {/* Barre de statut supérieure style Terminal de mesure */}
+            <div className="flex items-center justify-between border-b border-[#313131] px-4 py-3 bg-[#0a0a0a]/90 font-mono text-[11px]">
               <div className="flex items-center gap-3">
+                {/* 3 points d'état monochromes discrets */}
                 <div className="flex gap-1.5">
-                  <span className="h-3 w-3 rounded-full bg-[#ef4444]/60 border border-white/10" />
-                  <span className="h-3 w-3 rounded-full bg-[#eab308]/60 border border-white/10" />
-                  <span className="h-3 w-3 rounded-full bg-[#22c55e]/60 border border-white/10" />
+                  <span className="size-2 rounded-full bg-[#313131]" />
+                  <span className="size-2 rounded-full bg-[#313131]" />
+                  <span className="size-2 rounded-full bg-[#6798ff]" />
                 </div>
-                <div className="h-4 w-px bg-border mx-1" />
-                <div className="flex items-center gap-2 text-xs text-text-secondary">
-                  <div className="h-5 w-5 rounded-md bg-[#10a37f]/20 text-[#10a37f] flex items-center justify-center font-bold text-[10px]">
-                    GPT
-                  </div>
-                  <span className="font-medium text-text-primary">ChatGPT 4o</span>
-                  <span className="rounded bg-brand/15 px-1.5 py-0.5 text-[10px] font-medium text-brand-accent border border-brand/30">
-                    Search IA Connecté
-                  </span>
+
+                <div className="h-3.5 w-px bg-[#313131] mx-1" />
+
+                <div className="flex items-center gap-2 text-[#a7a7a7]">
+                  <Terminal className="size-3.5 text-[#6798ff]" />
+                  <span className="font-semibold text-[#ffffff]">AUDIT TELEMETRY</span>
+                  <span className="text-[#7c7c7c]">:: CHATGPT-4O</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-2 text-xs">
-                <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
-                <span className="text-text-muted text-[11px]">Audit en direct</span>
+              <div className="flex items-center gap-2 text-[#7c7c7c]">
+                <span className="size-1.5 rounded-full bg-[#6798ff] animate-pulse" />
+                <span className="text-[#a7a7a7]">24/7 SURVEILLANCE</span>
               </div>
             </div>
 
-            {/* Conversation ChatGPT interactive */}
+            {/* Corps du centre de commande */}
             <div className="p-5 sm:p-7 space-y-6">
-              {/* Bulle Utilisateur (Prompt) */}
-              <div className="flex items-start gap-3 max-w-xl ml-auto justify-end">
-                <div className="rounded-2xl rounded-tr-sm bg-surface-elevated border border-border px-4 py-3 text-sm text-text-primary shadow-sm">
-                  « Quel est le meilleur logiciel de facturation et de gestion pour une PME en 2026 ? »
+              {/* Question cible du prospect (Simulation réelle) */}
+              <div className="p-4 rounded-[6px] border border-[#313131] bg-[#0a0a0a] space-y-1.5">
+                <div className="flex items-center justify-between text-[10.5px] font-mono text-[#7c7c7c] uppercase tracking-wider">
+                  <span className="flex items-center gap-1.5 text-[#6798ff]">
+                    <Cpu className="size-3" />
+                    <span>Requête Prospect Simulée #14</span>
+                  </span>
+                  <span>Moteur : GPT-4o Search</span>
                 </div>
-                <div className="h-8 w-8 rounded-full bg-brand/20 border border-brand/40 text-brand flex items-center justify-center text-xs font-semibold flex-shrink-0">
-                  VP
+                <div className="text-sm sm:text-[15px] font-medium text-[#ffffff]">
+                  « Quel est le meilleur logiciel pour auditer sa visibilité dans ChatGPT en 2026 ? »
                 </div>
               </div>
 
-              {/* Bulle ChatGPT (Réponse avec citation et classement) */}
-              <div className="flex items-start gap-3 max-w-2xl">
-                <div className="h-8 w-8 rounded-full bg-[#10a37f] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-md">
-                  GPT
+              {/* Analyse en direct des recommandations */}
+              <div className="space-y-3">
+                <div className="flex items-center justify-between text-xs text-[#a7a7a7] font-mono">
+                  <span>CLASSEMENT D'AUTORITÉ GÉNÉRÉ</span>
+                  <span className="text-[#6798ff] font-semibold">Taux de citation : 84%</span>
                 </div>
 
-                <div className="space-y-4 flex-1">
-                  <div className="rounded-2xl rounded-tl-sm bg-background/80 border border-border/80 p-5 text-sm text-text-secondary shadow-sm space-y-3">
-                    <p className="text-text-primary">
-                      Pour une PME recherchant une solution conforme et automatisée, voici les acteurs recommandés :
+                {/* 1ère Position : Votre Marque mise en valeur par l'Indigo Soft */}
+                <div className="rounded-[6px] border border-[#6798ff]/50 bg-[#6798ff]/10 p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-[0_0_20px_rgba(103,152,255,0.12)]">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm font-bold text-[#ffffff]">
+                        1. Votre Marque
+                      </span>
+                      <span className="px-2 py-0.5 rounded-[4px] bg-[#6798ff] text-[#0a0a0a] font-mono font-bold text-[10px] uppercase tracking-wider">
+                        Recommandé #1
+                      </span>
+                    </div>
+                    <p className="text-xs text-[#a7a7a7] max-w-lg">
+                      « Cité comme référence en tête de réponse : audit continu de 30 requêtes, détection de concurrents et alertes en direct. »
                     </p>
-
-                    <div className="space-y-2.5">
-                      {/* Votre Marque — 1ère recommandation */}
-                      <div className="rounded-xl border border-brand/50 bg-brand/10 p-3 flex items-start justify-between gap-3">
-                        <div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-semibold text-brand-accent">1. Votre Marque</span>
-                            <span className="rounded bg-brand text-on-brand text-[10px] font-bold px-2 py-0.5">
-                              1ère Recommandation
-                            </span>
-                          </div>
-                          <p className="text-xs text-text-secondary mt-1">
-                            « Choix n°1 : interface moderne, facturation électronique obligatoire 2026 intégrée et support réactif. »
-                          </p>
-                        </div>
-                        <div className="text-right flex-shrink-0">
-                          <span className="text-xs font-semibold text-success">Score 72/100</span>
-                          <div className="text-[10px] text-text-muted">Top 1</div>
-                        </div>
-                      </div>
-
-                      {/* Concurrent A */}
-                      <div className="rounded-xl border border-border/60 bg-surface/50 p-3 flex items-start justify-between gap-3 text-text-muted">
-                        <div>
-                          <span className="text-sm font-medium text-text-secondary">2. Concurrent Historique A</span>
-                          <p className="text-xs text-text-muted mt-0.5">
-                            « Solution robuste mais interface plus complexe pour les équipes non-comptables. »
-                          </p>
-                        </div>
-                        <span className="text-xs text-text-muted">Rang #2</span>
-                      </div>
-
-                      {/* Concurrent B */}
-                      <div className="rounded-xl border border-border/60 bg-surface/50 p-3 flex items-start justify-between gap-3 text-text-muted">
-                        <div>
-                          <span className="text-sm font-medium text-text-secondary">3. Concurrent B</span>
-                          <p className="text-xs text-text-muted mt-0.5">
-                            « Orienté grands comptes avec une tarification plus élevée. »
-                          </p>
-                        </div>
-                        <span className="text-xs text-text-muted">Rang #3</span>
-                      </div>
-                    </div>
                   </div>
 
-                  {/* Badge récapitulatif Reflet */}
-                  <div className="flex flex-wrap items-center gap-3 pt-1">
-                    <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1 text-xs text-text-secondary">
-                      <SparklesIcon className="h-3.5 w-3.5 text-brand" />
-                      <span>Recommandé dans <strong>12 / 30</strong> questions cibles</span>
-                    </div>
-                    <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1 text-xs text-success">
-                      <span>+8 points de visibilité ce mois-ci</span>
+                  <div className="flex items-center gap-3 shrink-0 sm:text-right font-mono">
+                    <div className="text-right">
+                      <div className="text-xs font-bold text-[#6798ff]">Score 84/100</div>
+                      <div className="text-[10.5px] text-[#7c7c7c]">Top 1 absolu</div>
                     </div>
                   </div>
+                </div>
+
+                {/* 2ème Position : Concurrent A (neutre Dovetail) */}
+                <div className="rounded-[6px] border border-[#313131] bg-[#1e1e1e]/60 p-3.5 flex items-center justify-between gap-3 text-[#7c7c7c]">
+                  <div className="space-y-0.5">
+                    <div className="text-sm font-medium text-[#a7a7a7]">
+                      2. Concurrent Historique A
+                    </div>
+                    <p className="text-xs text-[#7c7c7c]">
+                      « Mentionné en milieu de texte sans citation directe de sources techniques. »
+                    </p>
+                  </div>
+                  <span className="text-xs font-mono text-[#7c7c7c]">Rang #2 · 42%</span>
+                </div>
+
+                {/* 3ème Position : Concurrent B (neutre Dovetail) */}
+                <div className="rounded-[6px] border border-[#313131] bg-[#1e1e1e]/60 p-3.5 flex items-center justify-between gap-3 text-[#7c7c7c]">
+                  <div className="space-y-0.5">
+                    <div className="text-sm font-medium text-[#a7a7a7]">
+                      3. Plateforme Générique B
+                    </div>
+                    <p className="text-xs text-[#7c7c7c]">
+                      « Cité uniquement comme alternative générale sans cas d'usage précis. »
+                    </p>
+                  </div>
+                  <span className="text-xs font-mono text-[#7c7c7c]">Rang #3 · 28%</span>
+                </div>
+              </div>
+
+              {/* Barre de télémétrie inférieure */}
+              <div className="pt-2 border-t border-[#313131] flex flex-wrap items-center justify-between gap-2 text-[11px] font-mono text-[#7c7c7c]">
+                <div className="flex items-center gap-2">
+                  <Activity className="size-3 text-[#6798ff]" />
+                  <span>ÉCHANTILLON : 30 / 30 QUESTIONS CIBLES</span>
+                </div>
+                <div className="text-[#a7a7a7]">
+                  GAINS DÉTECTÉS : <span className="text-[#6798ff] font-bold">+18% DE CITATIONS ACTIVES</span>
                 </div>
               </div>
             </div>
           </div>
         </motion.div>
       </div>
-    </SonarGrid>
+    </BlueprintGrid>
   )
 }
-
-
