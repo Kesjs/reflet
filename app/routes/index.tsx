@@ -8,7 +8,6 @@ import { QuestionEngine } from '@/components/sections/question-engine'
 import { WhatWeMeasure } from '@/components/sections/what-we-measure'
 import { Evidence } from '@/components/sections/evidence'
 import { History } from '@/components/sections/history'
-import { ValueLoop } from '@/components/sections/value-loop'
 import { Pricing } from '@/components/sections/pricing'
 import { FAQ } from '@/components/sections/faq'
 import { FinalCTA } from '@/components/sections/final-cta'
@@ -30,7 +29,6 @@ function LandingPage() {
         <WhatWeMeasure />
         <Evidence />
         <History />
-        <ValueLoop />
         <Pricing />
         <FAQ />
         <FinalCTA />

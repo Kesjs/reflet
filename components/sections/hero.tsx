@@ -74,7 +74,7 @@ export function Hero() {
                   aria-hidden="true"
                   className="absolute inset-0 opacity-25 bg-[repeating-linear-gradient(45deg,#c9ab1e,#c9ab1e_2px,transparent_2px,transparent_8px)] group-hover/badge:opacity-40 transition-opacity"
                 />
-                <span className="relative font-bold bg-gradient-to-r from-brand-accent via-brand to-[#e0a15c] bg-clip-text text-transparent">
+                <span className="relative font-bold text-brand-accent tracking-wide">
                   ChatGPT
                 </span>
               </span>
