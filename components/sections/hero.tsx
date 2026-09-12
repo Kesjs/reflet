@@ -62,13 +62,15 @@ export function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-6 max-w-5xl"
+          className="mt-6 max-w-6xl"
         >
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-text-primary leading-[1.12]">
-            <span className="block">Mesurez la visibilité de votre marque</span>
-            <span className="block mt-1 sm:mt-2">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[3.25rem] font-bold tracking-tight text-text-primary leading-[1.2]">
+            <span className="block md:whitespace-nowrap">
+              Mesurez la visibilité de votre marque
+            </span>
+            <span className="block mt-1 sm:mt-2 md:whitespace-nowrap">
               dans les recommandations de{' '}
-              <span className="relative inline-flex items-center align-baseline px-2 sm:px-3 py-0.5 rounded-lg border border-brand/40 bg-surface-elevated/80 shadow-inner overflow-hidden group/badge">
+              <span className="relative inline-flex items-center align-baseline px-2.5 sm:px-3 py-0.5 rounded-lg border border-brand/40 bg-surface-elevated/90 shadow-inner overflow-hidden group/badge">
                 {/* Rayures obliques stylisées */}
                 <span
                   aria-hidden="true"
