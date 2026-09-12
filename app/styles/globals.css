@@ -65,7 +65,7 @@
   body {
     background-color: var(--background);
     color: var(--text-primary);
-    font-family: 'Geist', system-ui, sans-serif;
+    font-family: 'Plus Jakarta Sans', 'Geist', system-ui, sans-serif;
     font-feature-settings: "rlig" 1, "calt" 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

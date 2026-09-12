@@ -1,148 +1,152 @@
 import { motion } from 'framer-motion'
-import { 
-  ChatBubbleLeftRightIcon,
-  DocumentTextIcon,
-  EyeIcon,
-  LinkIcon,
+import {
+  ChatBubbleBottomCenterTextIcon,
+  DocumentMagnifyingGlassIcon,
   LightBulbIcon,
-  SparklesIcon
+  SparklesIcon,
+  CheckCircleIcon,
+  ArrowRightIcon,
 } from '@heroicons/react/24/outline'
 import { SectionWrapper } from '@/components/ui/section-wrapper'
-import { SectionTitle } from '@/components/ui/section-title'
-
-const chain = [
-  {
-    icon: ChatBubbleLeftRightIcon,
-    label: 'Question',
-    description: 'La question posée à ChatGPT',
-  },
-  {
-    icon: DocumentTextIcon,
-    label: 'Réponse observée',
-    description: 'Ce que ChatGPT a généré',
-  },
-  {
-    icon: EyeIcon,
-    label: 'Observation',
-    description: 'Mentions et positions détectées',
-  },
-  {
-    icon: LinkIcon,
-    label: 'Site / Preuves',
-    description: 'Contenu de votre site analysé',
-  },
-  {
-    icon: SparklesIcon,
-    label: 'Constat',
-    description: 'Ce qui explique le résultat',
-  },
-  {
-    icon: LightBulbIcon,
-    label: 'Opportunité',
-    description: 'Ce que vous pouvez améliorer',
-  },
-]
 
 export function Evidence() {
-  const container = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  }
-  
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
-  
-  const line = {
-    hidden: { scaleY: 0 },
-    visible: {
-      scaleY: 1,
-      transition: {
-        duration: 1.2,
-        ease: [0.16, 1, 0.3, 1],
-      },
-    },
-  }
-
   return (
-    <SectionWrapper className="py-24">
+    <SectionWrapper className="py-24 relative">
       <div className="space-y-16">
-        <div className="text-center space-y-4">
-          <SectionTitle variant="h1">Pas de score sans preuves.</SectionTitle>
-          <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-            Chaque insight peut être remonté à sa source : la réponse observée, 
-            le contenu de votre site, et les éléments qui ont conduit à la conclusion.
+        {/* Header de section */}
+        <div className="text-center space-y-4 max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border-subtle bg-surface px-3 py-1 text-xs font-medium text-brand-accent">
+            <SparklesIcon className="h-3.5 w-3.5" />
+            <span>Traçabilité & Vérifiabilité</span>
+          </div>
+          <h2 className="text-4xl sm:text-5xl font-semibold tracking-tighter text-text-primary">
+            Pas de score sans preuves
+          </h2>
+          <p className="text-base sm:text-lg text-text-secondary leading-relaxed">
+            Finies les métriques « boîte noire ». Chaque recommandation ou note attribuée
+            par Reflet est adossée à une preuve textuelle brute vérifiable.
           </p>
         </div>
-        
-        <div className="max-w-2xl mx-auto">
+
+        {/* Pipeline de preuve en 3 colonnes connectées */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
+          {/* Carte 1 : La Question & le Contexte */}
           <motion.div
-            className="relative"
-            variants={container}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: '-100px' }}
-          >
-            {/* Ligne connectrice */}
-            <div className="absolute left-10 top-16 bottom-16 w-px bg-border overflow-hidden">
-              <motion.div
-                className="w-full h-full bg-brand origin-top"
-                variants={line}
-              />
-            </div>
-            
-            {/* Chaîne de preuves */}
-            <div className="relative space-y-6">
-              {chain.map((step, index) => (
-                <motion.div
-                  key={index}
-                  variants={item}
-                  className="relative"
-                >
-                  <div className="flex items-start gap-6">
-                    <div className="relative z-10 w-20 h-20 rounded-xl bg-surface border border-border flex items-center justify-center flex-shrink-0">
-                      <step.icon className="w-8 h-8 text-brand" />
-                    </div>
-                    <div className="flex-1 pt-3 space-y-1">
-                      <h4 className="text-lg font-semibold text-text-primary">
-                        {step.label}
-                      </h4>
-                      <p className="text-text-secondary">
-                        {step.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-          
-          <motion.p
-            className="text-center text-base text-text-secondary mt-16 max-w-xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 1.2 }}
+            transition={{ duration: 0.5 }}
+            className="rounded-2xl border border-border bg-surface/80 p-6 sm:p-7 backdrop-blur-md flex flex-col justify-between hover:border-border-hover transition-colors shadow-lg"
           >
-            Chaque insight important peut être remonté à la réponse observée, 
-            au contenu du site et aux éléments qui ont conduit à la conclusion.
-          </motion.p>
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-border/70">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-muted">
+                  <ChatBubbleBottomCenterTextIcon className="h-4 w-4 text-brand" />
+                  <span>1. Requête observée</span>
+                </div>
+                <span className="rounded bg-surface-elevated px-2 py-0.5 text-[10px] text-text-muted">
+                  Prompt certifié
+                </span>
+              </div>
+
+              <div className="mt-5 space-y-3">
+                <div className="rounded-xl border border-border/60 bg-background/80 p-3.5 text-xs text-text-secondary">
+                  <div className="text-text-muted text-[11px] mb-1">Prompt prospect simulé :</div>
+                  « Quel est le meilleur CRM pour une entreprise B2B de 50 salariés en France ? »
+                </div>
+                <p className="text-sm text-text-secondary leading-relaxed pt-2">
+                  La requête exacte posée aux modèles de langage dans des conditions réelles de navigation.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-border/50 text-xs text-brand-accent flex items-center gap-1.5 font-medium">
+              <span>Transmis au moteur d'analyse</span>
+              <ArrowRightIcon className="h-3 w-3" />
+            </div>
+          </motion.div>
+
+          {/* Carte 2 : La Réponse Brute & le Verbatim */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.15 }}
+            className="rounded-2xl border border-brand/40 bg-surface/90 p-6 sm:p-7 backdrop-blur-md flex flex-col justify-between shadow-xl relative"
+          >
+            <div className="absolute -top-3 right-6 rounded-full bg-brand text-on-brand text-[10px] font-bold px-2.5 py-0.5 shadow-md">
+              Preuve textuelle
+            </div>
+
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-border/70">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-brand-accent">
+                  <DocumentMagnifyingGlassIcon className="h-4 w-4" />
+                  <span>2. Verbatim ChatGPT</span>
+                </div>
+                <span className="text-[10px] text-success flex items-center gap-1 font-medium">
+                  <CheckCircleIcon className="h-3 w-3" /> Citation validée
+                </span>
+              </div>
+
+              <div className="mt-5 space-y-3">
+                <div className="rounded-xl border border-border/80 bg-background/90 p-3.5 text-xs text-text-secondary space-y-1.5">
+                  <div className="text-text-muted text-[11px]">Extrait de la réponse IA :</div>
+                  <p>
+                    « ...<mark className="bg-brand/25 text-brand-accent px-1 rounded font-medium">Votre Marque</mark> s'impose comme une alternative crédible grâce à son intégration native et sa conformité RGPD... »
+                  </p>
+                </div>
+                <p className="text-sm text-text-secondary leading-relaxed pt-2">
+                  Nous archivons l'intégralité du texte brut généré pour chaque question afin que vous puissiez auditer chaque mot.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-border/50 text-xs text-brand-accent flex items-center gap-1.5 font-medium">
+              <span>Conversion en levier stratégique</span>
+              <ArrowRightIcon className="h-3 w-3" />
+            </div>
+          </motion.div>
+
+          {/* Carte 3 : L'Opportunité & le Diagnostic */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="rounded-2xl border border-border bg-surface/80 p-6 sm:p-7 backdrop-blur-md flex flex-col justify-between hover:border-border-hover transition-colors shadow-lg"
+          >
+            <div>
+              <div className="flex items-center justify-between pb-4 border-b border-border/70">
+                <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-text-muted">
+                  <LightBulbIcon className="h-4 w-4 text-brand" />
+                  <span>3. Plan d'amélioration</span>
+                </div>
+                <span className="rounded bg-surface-elevated px-2 py-0.5 text-[10px] text-text-muted">
+                  Action concrète
+                </span>
+              </div>
+
+              <div className="mt-5 space-y-3">
+                <div className="rounded-xl border border-border/60 bg-background/80 p-3.5 text-xs text-text-secondary space-y-1">
+                  <div className="text-text-muted text-[11px]">Recommandation Reflet :</div>
+                  <p className="text-text-primary font-medium">
+                    « Publiez un cas client détaillé sur l'API pour passer devant Concurrent A sur les requêtes techniques. »
+                  </p>
+                </div>
+                <p className="text-sm text-text-secondary leading-relaxed pt-2">
+                  Chaque preuve débouche sur une recommandation claire sur votre contenu web pour influencer les futures réponses de l'IA.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-6 pt-4 border-t border-border/50 text-xs text-text-muted flex items-center gap-1">
+              <span>Mesure mise à jour automatiquement</span>
+            </div>
+          </motion.div>
         </div>
       </div>
     </SectionWrapper>
   )
 }
+

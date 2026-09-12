@@ -42,7 +42,7 @@ export function Hero() {
       />
 
       <div className="mx-auto max-w-6xl flex flex-col items-center justify-center text-center">
-        {/* Badge d'annonce interactif style SaasCN */}
+        {/* Badge d'annonce épuré — sans point clignotant */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -52,40 +52,46 @@ export function Hero() {
             href="/produit/visibilite-ia"
             className="group inline-flex items-center gap-2 rounded-full border border-border-subtle bg-surface/80 px-4 py-1.5 text-xs text-text-secondary backdrop-blur-md transition-colors hover:border-border-hover hover:bg-surface hover:text-text-primary"
           >
-            <span className="flex h-2 w-2 rounded-full bg-brand animate-pulse" />
-            <span className="font-medium text-text-primary">Visibilité IA 2026</span>
-            <span className="text-text-muted">·</span>
-            <span>Découvrez comment ChatGPT recommande votre marque</span>
+            <span>L'audit de référence pour les moteurs de réponse IA</span>
             <ArrowUpRightIcon className="h-3.5 w-3.5 transition-transform duration-200 group-hover:-rotate-12 group-hover:text-brand-accent" />
           </a>
         </motion.div>
 
-        {/* Titre principal centré à fort impact */}
+        {/* Titre principal strictement sur 2 lignes */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="mt-6 max-w-4xl"
+          className="mt-6 max-w-5xl"
         >
-          <h1 className="text-5xl font-semibold tracking-tighter text-text-primary sm:text-6xl md:text-7xl lg:text-7xl leading-[1.08]">
-            Voyez comment votre marque apparaît dans{' '}
-            <span className="bg-gradient-to-r from-white via-brand-accent to-brand bg-clip-text text-transparent">
-              ChatGPT
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-bold tracking-tighter text-text-primary leading-[1.12]">
+            <span className="block">Mesurez la visibilité de votre marque</span>
+            <span className="block mt-1 sm:mt-2">
+              dans les recommandations de{' '}
+              <span className="relative inline-flex items-center align-baseline px-2 sm:px-3 py-0.5 rounded-lg border border-brand/40 bg-surface-elevated/80 shadow-inner overflow-hidden group/badge">
+                {/* Rayures obliques stylisées */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 opacity-25 bg-[repeating-linear-gradient(45deg,#c9ab1e,#c9ab1e_2px,transparent_2px,transparent_8px)] group-hover/badge:opacity-40 transition-opacity"
+                />
+                <span className="relative font-bold bg-gradient-to-r from-brand-accent via-brand to-[#e0a15c] bg-clip-text text-transparent">
+                  ChatGPT
+                </span>
+              </span>
+              .
             </span>
-            .
           </h1>
         </motion.div>
 
-        {/* Sous-titre aéré */}
+        {/* Sous-titre harmonisé sans répétition */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mt-6 max-w-2xl text-lg text-text-secondary md:text-xl leading-relaxed tracking-tight"
+          className="mt-6 max-w-2xl text-base sm:text-lg text-text-secondary md:text-xl leading-relaxed tracking-tight"
         >
-          Reflet pose les questions que vos prospects se posent réellement, analyse les
-          réponses de ChatGPT et vous montre où vous apparaissez, qui prend votre place et
-          comment passer premier.
+          Reflet simule les questions réelles de vos prospects, analyse les réponses
+          générées et vous révèle qui prend votre place pour vous hisser en première position.
         </motion.p>
 
         {/* Double boutons d'action (CTAs) */}
@@ -125,108 +131,129 @@ export function Hero() {
           <span>1 site inclus · jusqu'à 30 questions ciblées · mesure continue sans configuration</span>
         </motion.p>
 
-        {/* Vitrine Produit interactive & stylisée (Mockup centré) */}
+        {/* Mockup ChatGPT immersif — Nouvelle Dimension */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
           className="relative mt-12 w-full max-w-4xl"
         >
-          {/* Lueur d'accentuation sous le mockup */}
+          {/* Lueur dorée d'accentuation sous le mockup */}
           <div
-            className="pointer-events-none absolute -inset-1 rounded-2xl opacity-40 blur-xl -z-10"
+            className="pointer-events-none absolute -inset-1 rounded-2xl opacity-35 blur-2xl -z-10"
             style={{
               background:
-                'radial-gradient(circle at 50% 0%, rgba(201, 171, 30, 0.25) 0%, transparent 70%)',
+                'radial-gradient(circle at 50% 0%, rgba(201, 171, 30, 0.3) 0%, transparent 70%)',
             }}
             aria-hidden="true"
           />
 
-          <div className="overflow-hidden rounded-2xl border border-border bg-surface/80 p-6 sm:p-8 backdrop-blur-xl shadow-2xl text-left">
-            {/* Header du Mockup */}
-            <div className="flex flex-wrap items-center justify-between gap-4 border-b border-border/80 pb-6">
-              <div>
-                <div className="flex items-center gap-2">
-                  <span className="h-2 w-2 rounded-full bg-success" />
-                  <span className="text-xs font-medium uppercase tracking-wider text-text-muted">
-                    Rapport de visibilité en direct
+          <div className="overflow-hidden rounded-2xl border border-border bg-surface/90 backdrop-blur-2xl shadow-2xl text-left">
+            {/* Barre supérieure style ChatGPT Desktop / Web */}
+            <div className="flex items-center justify-between border-b border-border/80 px-4 py-3 bg-surface-elevated/70">
+              <div className="flex items-center gap-3">
+                <div className="flex gap-1.5">
+                  <span className="h-3 w-3 rounded-full bg-[#ef4444]/60 border border-white/10" />
+                  <span className="h-3 w-3 rounded-full bg-[#eab308]/60 border border-white/10" />
+                  <span className="h-3 w-3 rounded-full bg-[#22c55e]/60 border border-white/10" />
+                </div>
+                <div className="h-4 w-px bg-border mx-1" />
+                <div className="flex items-center gap-2 text-xs text-text-secondary">
+                  <div className="h-5 w-5 rounded-md bg-[#10a37f]/20 text-[#10a37f] flex items-center justify-center font-bold text-[10px]">
+                    GPT
+                  </div>
+                  <span className="font-medium text-text-primary">ChatGPT 4o</span>
+                  <span className="rounded bg-brand/15 px-1.5 py-0.5 text-[10px] font-medium text-brand-accent border border-brand/30">
+                    Search IA Connecté
                   </span>
                 </div>
-                <h3 className="mt-1 text-lg font-medium text-text-primary">
-                  Positionnement sur ChatGPT 4o / Search
-                </h3>
               </div>
-              <div className="flex items-center gap-3 rounded-lg border border-border bg-surface-elevated px-3 py-1.5 text-xs text-text-secondary">
-                <SparklesIcon className="h-4 w-4 text-brand" />
-                <span>30 requêtes surveillées</span>
+
+              <div className="flex items-center gap-2 text-xs">
+                <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
+                <span className="text-text-muted text-[11px]">Audit en direct</span>
               </div>
             </div>
 
-            {/* Statistiques principales en grille */}
-            <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="rounded-xl border border-border/60 bg-background/60 p-4">
-                <div className="text-xs text-text-muted">Score de visibilité</div>
-                <div className="mt-1 flex items-baseline gap-2">
-                  <span className="text-4xl font-semibold tracking-tight text-text-primary">
-                    72
-                  </span>
-                  <span className="text-xs font-medium text-success">+8 pts</span>
+            {/* Conversation ChatGPT interactive */}
+            <div className="p-5 sm:p-7 space-y-6">
+              {/* Bulle Utilisateur (Prompt) */}
+              <div className="flex items-start gap-3 max-w-xl ml-auto justify-end">
+                <div className="rounded-2xl rounded-tr-sm bg-surface-elevated border border-border px-4 py-3 text-sm text-text-primary shadow-sm">
+                  « Quel est le meilleur logiciel de facturation et de gestion pour une PME en 2026 ? »
                 </div>
-                <div className="mt-1 text-[11px] text-text-muted">vs mesure précédente</div>
+                <div className="h-8 w-8 rounded-full bg-brand/20 border border-brand/40 text-brand flex items-center justify-center text-xs font-semibold flex-shrink-0">
+                  VP
+                </div>
               </div>
 
-              <div className="rounded-xl border border-border/60 bg-background/60 p-4">
-                <div className="text-xs text-text-muted">Taux de recommandation</div>
-                <div className="mt-1 flex items-baseline gap-2">
-                  <span className="text-4xl font-semibold tracking-tight text-brand-accent">
-                    12<span className="text-xl text-text-muted">/30</span>
-                  </span>
-                  <span className="text-xs font-medium text-text-muted">40%</span>
+              {/* Bulle ChatGPT (Réponse avec citation et classement) */}
+              <div className="flex items-start gap-3 max-w-2xl">
+                <div className="h-8 w-8 rounded-full bg-[#10a37f] text-white flex items-center justify-center text-xs font-bold flex-shrink-0 shadow-md">
+                  GPT
                 </div>
-                <div className="mt-1 text-[11px] text-text-muted">en 1ère suggestion</div>
-              </div>
 
-              <div className="rounded-xl border border-border/60 bg-background/60 p-4">
-                <div className="text-xs text-text-muted">Position moyenne</div>
-                <div className="mt-1 flex items-baseline gap-2">
-                  <span className="text-4xl font-semibold tracking-tight text-text-primary">
-                    #2.3
-                  </span>
-                  <span className="text-xs font-medium text-success">Top 3</span>
+                <div className="space-y-4 flex-1">
+                  <div className="rounded-2xl rounded-tl-sm bg-background/80 border border-border/80 p-5 text-sm text-text-secondary shadow-sm space-y-3">
+                    <p className="text-text-primary">
+                      Pour une PME recherchant une solution conforme et automatisée, voici les acteurs recommandés :
+                    </p>
+
+                    <div className="space-y-2.5">
+                      {/* Votre Marque — 1ère recommandation */}
+                      <div className="rounded-xl border border-brand/50 bg-brand/10 p-3 flex items-start justify-between gap-3">
+                        <div>
+                          <div className="flex items-center gap-2">
+                            <span className="text-sm font-semibold text-brand-accent">1. Votre Marque</span>
+                            <span className="rounded bg-brand text-on-brand text-[10px] font-bold px-2 py-0.5">
+                              1ère Recommandation
+                            </span>
+                          </div>
+                          <p className="text-xs text-text-secondary mt-1">
+                            « Choix n°1 : interface moderne, facturation électronique obligatoire 2026 intégrée et support réactif. »
+                          </p>
+                        </div>
+                        <div className="text-right flex-shrink-0">
+                          <span className="text-xs font-semibold text-success">Score 72/100</span>
+                          <div className="text-[10px] text-text-muted">Top 1</div>
+                        </div>
+                      </div>
+
+                      {/* Concurrent A */}
+                      <div className="rounded-xl border border-border/60 bg-surface/50 p-3 flex items-start justify-between gap-3 text-text-muted">
+                        <div>
+                          <span className="text-sm font-medium text-text-secondary">2. Concurrent Historique A</span>
+                          <p className="text-xs text-text-muted mt-0.5">
+                            « Solution robuste mais interface plus complexe pour les équipes non-comptables. »
+                          </p>
+                        </div>
+                        <span className="text-xs text-text-muted">Rang #2</span>
+                      </div>
+
+                      {/* Concurrent B */}
+                      <div className="rounded-xl border border-border/60 bg-surface/50 p-3 flex items-start justify-between gap-3 text-text-muted">
+                        <div>
+                          <span className="text-sm font-medium text-text-secondary">3. Concurrent B</span>
+                          <p className="text-xs text-text-muted mt-0.5">
+                            « Orienté grands comptes avec une tarification plus élevée. »
+                          </p>
+                        </div>
+                        <span className="text-xs text-text-muted">Rang #3</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Badge récapitulatif Reflet */}
+                  <div className="flex flex-wrap items-center gap-3 pt-1">
+                    <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1 text-xs text-text-secondary">
+                      <SparklesIcon className="h-3.5 w-3.5 text-brand" />
+                      <span>Recommandé dans <strong>12 / 30</strong> questions cibles</span>
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 rounded-lg border border-border bg-surface px-3 py-1 text-xs text-success">
+                      <span>+8 points de visibilité ce mois-ci</span>
+                    </div>
+                  </div>
                 </div>
-                <div className="mt-1 text-[11px] text-text-muted">sur les requêtes clés</div>
-              </div>
-            </div>
-
-            {/* Aperçu de la réponse observée dans ChatGPT */}
-            <div className="mt-6 rounded-xl border border-border/60 bg-background/80 p-4 sm:p-5">
-              <div className="flex items-center justify-between text-xs text-text-muted">
-                <span className="font-medium text-text-secondary">
-                  Prompt prospect : « Quel est le meilleur outil de gestion pour PME en 2026 ? »
-                </span>
-                <span className="rounded bg-surface-elevated px-2 py-0.5 text-[10px] text-text-muted">
-                  Réponse vérifiée
-                </span>
-              </div>
-              <div className="mt-3 space-y-2 text-sm text-text-secondary">
-                <p>
-                  "Pour une entreprise à la recherche d'une solution moderne et conforme, voici les
-                  acteurs recommandés :"
-                </p>
-                <ol className="list-decimal list-inside space-y-1 pl-1">
-                  <li>
-                    <span className="font-medium text-brand-accent">Votre Marque</span>
-                    <span className="text-text-muted"> — Reconnu pour sa simplicité et sa conformité</span>
-                  </li>
-                  <li>
-                    <span className="text-text-secondary">Concurrent A</span>
-                    <span className="text-text-muted"> — Alternative historique</span>
-                  </li>
-                  <li>
-                    <span className="text-text-secondary">Concurrent B</span>
-                    <span className="text-text-muted"> — Solution orientée grands comptes</span>
-                  </li>
-                </ol>
               </div>
             </div>
           </div>

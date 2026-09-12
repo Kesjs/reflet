@@ -5,6 +5,7 @@ import { SectionWrapper } from '@/components/ui/section-wrapper'
 import { SectionTitle } from '@/components/ui/section-title'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
+import { BorderBeam } from '@/components/ui/border-beam'
 
 const features = [
   '1 site web analysé',
@@ -66,7 +67,15 @@ export function Pricing() {
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <Card>
+          <Card className="relative overflow-hidden border-border/80 bg-surface/90 backdrop-blur-sm shadow-2xl">
+            <BorderBeam
+              size={280}
+              duration={12}
+              delay={0}
+              colorFrom="#c9ab1e"
+              colorTo="#f2d94e"
+              borderWidth={1.5}
+            />
             <CardHeader>
               <CardTitle className="text-center">
                 <div className="space-y-2">

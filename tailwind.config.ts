@@ -64,7 +64,7 @@ const config: Config = {
         'metric': 'clamp(2rem, 3vw, 3rem)',
       },
       fontFamily: {
-        sans: ['Geist', 'system-ui', 'sans-serif'],
+        sans: ['"Plus Jakarta Sans"', 'Geist', 'system-ui', 'sans-serif'],
       },
       keyframes: {
         'accordion-down': {
@@ -75,10 +75,16 @@ const config: Config = {
           from: { height: 'var(--radix-accordion-content-height)' },
           to: { height: '0' },
         },
+        'border-beam': {
+          '100%': {
+            'offset-distance': '100%',
+          },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.3s ease-out',
         'accordion-up': 'accordion-up 0.3s ease-out',
+        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear',
       },
     },
   },
